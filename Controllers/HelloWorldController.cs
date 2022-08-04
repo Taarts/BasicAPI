@@ -14,21 +14,21 @@ namespace BasicAPI.Controllers
         // the name of the method is to be clear to *me* (programmer)
         // Doesn't tell ASP a damn thing...
         [HttpGet]
-        public string SayHello(string who)
+        public string SayHello(string who = "World")
         {
-            // string whoOrWorld;
+            // string whoOrWorld;              /|\
+            //                                  |
+            // if (who == null)                 |
+            // {                                |
+            //     whoOrWorld = "World";        |
+            // }                                |
+            // else                             |
+            // {                                |
+            //     whoOrWorld = who;            |
+            // }                                |
+            // string whoOrWorld = (who == null) ? "World" : who;
 
-            // if (who == null)
-            // {
-            //     whoOrWorld = "World";
-            // }
-            // else
-            // {
-            //     whoOrWorld = who;
-            // }
-            string whoOrWorld = (who == null) ? "World" : who;
-
-            return $"Hello, {whoOrWorld}. It is currently {DateTime.Now}";
+            return $"Hello, {who}. It is currently {DateTime.Now}";
         }
     }
 }
